@@ -5,7 +5,7 @@ matches = open("matches.txt", "r").readlines()
 matches = [i.rstrip() + ".log" for i in matches]
 
 #playerName = input("What was your username: ")
-playerName = "Wwwppprrr"
+playerName = "ck49"
 
 wins = []
 mons = []
@@ -54,7 +54,11 @@ for match in matches:
 
 	for line in pregame.split("\\n"):
 		if "poke|p" + str(int(Notplayer)) in line:
-			opponentMons.append(line.split("poke|p" + str(Notplayer) + "|")[1].split(",")[0])
+			p = line.split("poke|p" + str(Notplayer) + "|")[1].split(",")[0]
+			if "-" in p:
+				if "Porygon" not in p and "o-o" not in p:
+					p = p.split("-")[0]
+			opponentMons.append(p)
 			allMons.add(opponentMons[-1])
 #	print(opponentMons)
 	mons.append(opponentMons)
